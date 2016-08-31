@@ -32,6 +32,12 @@ function resolveAboutComponent(nextState, cb) {
     .catch(handleError);
 }
 
+function resolveAppleComponent(nextState, cb) {
+  System.import('../components/Apple')
+    .then(module => cb(null, module.default))
+    .catch(handleError);
+}
+
 /**
  * Our routes.
  *
@@ -45,6 +51,7 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute getComponent={resolveIndexComponent} />
     <Route path="about" getComponent={resolveAboutComponent} />
+    <Route path="apple" getComponent={resolveAppleComponent} />
   </Route>
 );
 
